@@ -69,11 +69,11 @@ public class BloodmoonConfig
 	{
 		@Name(value = "Chance")
 		@Comment(value = { "The chance of a bloodmoon occuring at the beginning of a night (0=Never;1=Every night;0.05=5% of all nights)" })
-		public double CHANCE = 0.05;
+		public double CHANCE = 0.20;
 
 		@Name(value = "Fullmoon")
 		@Comment(value = { "Whether there should be a bloodmoon whenever there is a full moon" })
-		public boolean FULLMOON = false;
+		public boolean FULLMOON = true;
 
 		@Name(value = "NthNight")
 		@Comment(value = { "Every nth night there will be a bloodmoon (0 disables this, 1 would be every night, 2 every second night)" })
@@ -87,15 +87,18 @@ public class BloodmoonConfig
 	{
 		@Name(value = "SpawnSpeed")
 		@Comment(value = { "How much faster enemys spawn on a bloodmoon (0=Vanilla)" })
-		public int SPAWN_SPEED = 4;
-
+		public int SPAWN_SPEED = 1; // for some reasons, the values seem to have a multiplier in addition, for example if we set the value 0 the multiplier will be x3 and not in x2, x4 for value 1
+		
 		@Name(value = "SpawnLimitMultiplier")
 		@Comment(value = { "With which number should the default entity limit be multiplicated on a blood moon" })
-		public int SPAWN_LIMIT_MULT = 4;
-
+		public int SPAWN_LIMIT_MULT = 10; // 10 = 240 entity
+// note that the configuration want to keep spawning after the limit-x10, but will despawning just as soon for the average of 317 entity permanent, i don't know why 70 mobs to exists in excess, the SPAWN_SPEED don't seems related, It would make perfect sense if hostile mobs spawned by minecraft and not by the mod were not counted 
+// note that modded mobs are differentiated within the limit (why this mod work so weird?)
+// note that i am not sure about the influnce with the SPAWN_RANGE value, it looks really **truncated**
+		
 		@Name(value = "SpawnRange")
 		@Comment(value = { "How close can enemys spawn next to the player on a bloodmoon in blocks? (Vanilla=24)" })
-		public int SPAWN_RANGE = 2;
+		public int SPAWN_RANGE = 2; //still fun to have 3 zombies and 1 skelette spawn at 2 blocks of us :D
 
 		@Name(value = "WorldSpawnDistance")
 		@Comment(value = { "How close can enemys spawn next to the World Spawn (Vanilla=24)" })
